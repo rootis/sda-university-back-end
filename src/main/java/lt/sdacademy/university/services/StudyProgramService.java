@@ -8,6 +8,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class StudyProgramService {
 
+    private final ModuleService moduleService;
+
+    public StudyProgramService(ModuleService moduleService) {
+        this.moduleService = moduleService;
+    }
+
     public List<StudyProgram> getStudyPrograms() {
         List<StudyProgram> studyPrograms = new ArrayList<>();
         studyPrograms.add(new StudyProgram(1, "Computer Science", 1));
