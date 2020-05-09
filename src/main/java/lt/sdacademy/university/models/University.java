@@ -11,6 +11,9 @@ public class University {
 
     private List<StudyProgram> studyPrograms = new ArrayList<>();
 
+    public University() {
+    }
+
     public University(Integer id, String title) {
         this.id = id;
         this.title = title;
