@@ -1,4 +1,4 @@
-package lt.sdacademy.university;
+package lt.sdacademy.university.services;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 @Tag("integration")
-class UniversityApplicationTests {
+class UniversityServiceIT {
 
     @Autowired
     private UniversityService universityService;
