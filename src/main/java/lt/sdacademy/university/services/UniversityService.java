@@ -16,12 +16,15 @@ public class UniversityService {
     }
 
     public List<University> getUniversities() {
-        System.out.println(studyProgramService);
         List<University> universities = new ArrayList<>();
         universities.add(new University(1, "KTU"));
         universities.add(new University(2, "SDA"));
 
         return universities;
+    }
+
+    public University getUniversity(Integer id) {
+        return getUniversities().stream().filter(u -> u.getId().equals(id)).findFirst().orElse(null);
     }
 
     public List<University> getUniversitiesWithStudyPrograms() {
