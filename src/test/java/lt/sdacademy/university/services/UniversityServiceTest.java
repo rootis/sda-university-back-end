@@ -1,6 +1,7 @@
 package lt.sdacademy.university.services;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.mockito.Mockito.mock;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,7 @@ class UniversityServiceTest {
 
     @BeforeEach
     public void init() {
-        universityService = new UniversityService();
+        universityService = new UniversityService(mock(StudyProgramService.class));
     }
 
     @Test
