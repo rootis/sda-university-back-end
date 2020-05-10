@@ -1,11 +1,10 @@
 package lt.sdacademy.university.services;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import lt.sdacademy.university.models.StudyProgram;
 import lt.sdacademy.university.models.University;
+import lt.sdacademy.university.models.entities.UniversityEntity;
+import lt.sdacademy.university.repositories.UniversityRepository;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,26 +12,29 @@ public class UniversityService {
 
     private final StudyProgramService studyProgramService;
 
-    List<University> universities = new ArrayList<>(Arrays.asList(new University(1, "KTU"), new University(2, "SDA")));
+    private final UniversityRepository universityRepository;
 
-    public UniversityService(StudyProgramService studyProgramService) {
+    public UniversityService(StudyProgramService studyProgramService, UniversityRepository universityRepository) {
         this.studyProgramService = studyProgramService;
+        this.universityRepository = universityRepository;
     }
 
-    public List<University> getUniversities() {
-        return universities;
+    public List<UniversityEntity> getUniversities() {
+        return universityRepository.findAll();
     }
 
     public University getUniversity(Integer id) {
-        return universities.stream().filter(u -> u.getId().equals(id)).findFirst().orElse(null);
+        // TODO: fix
+        return null;
     }
 
     public University save(University university) {
-        return university.getId() == null ? create(university) : update(university);
+        // TODO: fix
+        return university;
     }
 
     public void delete(Integer id) {
-        universities.removeIf(u -> u.getId().equals(id));
+        // TODO: fix
     }
 
     public List<University> getUniversitiesWithStudyPrograms() {
@@ -40,22 +42,6 @@ public class UniversityService {
 
         // TODO: add study programs to universities
 
-        return universities;
+        return null;
     }
-
-    private University create(University university) {
-        Integer maxId = universities.stream().map(u -> u.getId()).sorted(Comparator.reverseOrder()).findFirst().orElse(0);
-        university.setId(maxId + 1);
-
-        universities.add(university);
-
-        return university;
-    }
-
-    private University update(University university) {
-        // TODO: find in list university with the same id and change it
-
-        return university;
-    }
-
 }

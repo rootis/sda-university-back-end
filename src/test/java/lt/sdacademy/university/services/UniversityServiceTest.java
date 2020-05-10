@@ -3,6 +3,7 @@ package lt.sdacademy.university.services;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.Mockito.mock;
 
+import lt.sdacademy.university.repositories.UniversityRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +13,7 @@ class UniversityServiceTest {
 
     @BeforeEach
     public void init() {
-        universityService = new UniversityService(mock(StudyProgramService.class));
+        universityService = new UniversityService(mock(StudyProgramService.class), mock(UniversityRepository.class));
     }
 
     @Test

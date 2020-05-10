@@ -2,6 +2,7 @@ package lt.sdacademy.university.controllers;
 
 import java.util.List;
 import lt.sdacademy.university.models.University;
+import lt.sdacademy.university.models.entities.UniversityEntity;
 import lt.sdacademy.university.services.UniversityService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +27,7 @@ public class UniversityController {
     }
 
     @GetMapping
-    public List<University> getAll() {
+    public List<UniversityEntity> getAll() {
         return universityService.getUniversities();
     }
 
