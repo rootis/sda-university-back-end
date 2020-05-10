@@ -32,7 +32,7 @@ public class UniversityService {
     }
 
     public void delete(Integer id) {
-        // TODO: delete university by id
+        universities.removeIf(u -> u.getId().equals(id));
     }
 
     public List<University> getUniversitiesWithStudyPrograms() {
