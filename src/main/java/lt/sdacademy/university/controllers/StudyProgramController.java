@@ -1,6 +1,16 @@
 package lt.sdacademy.university.controllers;
 
+// /api/study-programs
 public class StudyProgramController {
 
-    // TODO: implement
+    // dependency: StudyProgramService
+
+    // Get all
+
+    // Get one
+
+    // save
+
+    // delete
+
 }
