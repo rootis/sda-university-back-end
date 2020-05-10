@@ -1,3 +1,4 @@
+-- DDL
 CREATE TABLE university
 (
     id int unsigned auto_increment primary key,
