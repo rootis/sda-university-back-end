@@ -1,16 +1,43 @@
 package lt.sdacademy.university.controllers;
 
-// /api/study-programs
+import java.util.List;
+import lt.sdacademy.university.models.StudyProgram;
+import lt.sdacademy.university.services.StudyProgramService;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/study-programs")
 public class StudyProgramController {
 
-    // dependency: StudyProgramService
+    private final StudyProgramService studyProgramService;
 
-    // Get all
+    public StudyProgramController(StudyProgramService studyProgramService) {
+        this.studyProgramService = studyProgramService;
+    }
 
-    // Get one
+    @GetMapping
+    public List<StudyProgram> getAll() {
+        return studyProgramService.getStudyPrograms();
+    }
 
-    // save
+    @GetMapping("/{id}")
+    public StudyProgram getStudyProgram(@PathVariable Integer id) {
+        return studyProgramService.getStudyProgram(id);
+    }
 
-    // delete
+    @PostMapping
+    public StudyProgram save(@RequestBody StudyProgram studyProgram) {
+        return studyProgramService.save(studyProgram);
+    }
 
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Integer id) {
+        studyProgramService.delete(id);
+    }
 }
