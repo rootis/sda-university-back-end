@@ -1,11 +1,14 @@
-package lt.sdacademy.university.models;
+package lt.sdacademy.university.models.dto;
 
 import java.util.ArrayList;
 import java.util.List;
+import lt.sdacademy.university.models.entities.UniversityEntity;
 
 public class University {
 
     private Integer id;
+
+    private String code;
 
     private String title;
 
@@ -14,9 +17,14 @@ public class University {
     public University() {
     }
 
-    public University(Integer id, String title) {
+    public University(Integer id, String code, String title) {
         this.id = id;
+        this.code = code;
         this.title = title;
+    }
+
+    public static University convertFrom(UniversityEntity university) {
+        return new University(university.getId(), university.getCode(), university.getTitle());
     }
 
     public Integer getId() {
@@ -25,6 +33,14 @@ public class University {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getTitle() {

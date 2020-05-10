@@ -1,7 +1,7 @@
 package lt.sdacademy.university.controllers;
 
 import java.util.List;
-import lt.sdacademy.university.models.StudyProgram;
+import lt.sdacademy.university.models.dto.StudyProgram;
 import lt.sdacademy.university.services.StudyProgramService;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

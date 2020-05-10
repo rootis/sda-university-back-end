@@ -1,8 +1,10 @@
 package lt.sdacademy.university.services;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.List;
-import lt.sdacademy.university.models.StudyProgram;
-import lt.sdacademy.university.models.University;
+import lt.sdacademy.university.models.dto.StudyProgram;
+import lt.sdacademy.university.models.dto.University;
 import lt.sdacademy.university.models.entities.UniversityEntity;
 import lt.sdacademy.university.repositories.UniversityRepository;
 import org.springframework.stereotype.Service;
@@ -19,8 +21,10 @@ public class UniversityService {
         this.universityRepository = universityRepository;
     }
 
-    public List<UniversityEntity> getUniversities() {
-        return universityRepository.findAll();
+    public List<University> getUniversities() {
+        List<UniversityEntity> universities = universityRepository.findAll();
+
+        return universities.stream().map(University::convertFrom).collect(toList());
     }
 
     public University getUniversity(Integer id) {

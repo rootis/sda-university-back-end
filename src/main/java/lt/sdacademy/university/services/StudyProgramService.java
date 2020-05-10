@@ -3,7 +3,7 @@ package lt.sdacademy.university.services;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import lt.sdacademy.university.models.StudyProgram;
+import lt.sdacademy.university.models.dto.StudyProgram;
 import org.springframework.stereotype.Service;
 
 @Service
