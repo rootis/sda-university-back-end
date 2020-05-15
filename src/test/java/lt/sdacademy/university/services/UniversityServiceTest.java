@@ -1,6 +1,6 @@
 package lt.sdacademy.university.services;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
 
 import lt.sdacademy.university.repositories.UniversityRepository;
@@ -17,7 +17,7 @@ class UniversityServiceTest {
     }
 
     @Test
-    void getUniversities_isNotEmpty() {
-        assertFalse(universityService.getUniversities().isEmpty());
+    void getUniversities() {
+        assertNotNull(universityService.getUniversities());
     }
 }
