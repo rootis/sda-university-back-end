@@ -13,7 +13,7 @@ class UniversityServiceTest {
 
     @BeforeEach
     public void init() {
-        universityService = new UniversityService(mock(StudyProgramService.class), mock(UniversityRepository.class));
+        universityService = new UniversityService(mock(UniversityRepository.class));
     }
 
     @Test
