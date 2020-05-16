@@ -4,6 +4,7 @@ import static java.util.stream.Collectors.toList;
 
 import java.util.List;
 import lt.sdacademy.university.models.dto.University;
+import lt.sdacademy.university.models.entities.StudyProgramEntity;
 import lt.sdacademy.university.models.entities.UniversityEntity;
 import lt.sdacademy.university.repositories.UniversityRepository;
 import org.springframework.stereotype.Component;
@@ -22,7 +23,7 @@ public class UniversityConverter {
     }
 
     public University convert(UniversityEntity university) {
-        List<String> studyPrograms = university.getStudyPrograms().stream().map(s -> s.getTitle()).collect(toList());
+        List<String> studyPrograms = university.getStudyPrograms().stream().map(StudyProgramEntity::getTitle).collect(toList());
 
         return new University(
             university.getId(),
