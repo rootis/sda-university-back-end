@@ -22,10 +22,13 @@ public class UniversityConverter {
     }
 
     public University convert(UniversityEntity university) {
+        List<String> studyPrograms = university.getStudyPrograms().stream().map(s -> s.getTitle()).collect(toList());
+
         return new University(
             university.getId(),
             university.getCode(),
-            university.getTitle()
+            university.getTitle(),
+            studyPrograms
         );
     }
 
