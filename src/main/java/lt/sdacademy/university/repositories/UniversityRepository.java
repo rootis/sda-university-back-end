@@ -6,5 +6,9 @@ import org.springframework.data.repository.Repository;
 
 public interface UniversityRepository extends Repository<UniversityEntity, Integer> {
 
+    UniversityEntity findOneById(Integer id);
+
     List<UniversityEntity> findAll();
+
+    UniversityEntity save(UniversityEntity university);
 }

@@ -2,7 +2,6 @@ package lt.sdacademy.university.models.dto;
 
 import java.util.ArrayList;
 import java.util.List;
-import lt.sdacademy.university.models.entities.UniversityEntity;
 
 public class University {
 
@@ -21,10 +20,6 @@ public class University {
         this.id = id;
         this.code = code;
         this.title = title;
-    }
-
-    public static University convertFrom(UniversityEntity university) {
-        return new University(university.getId(), university.getCode(), university.getTitle());
     }
 
     public Integer getId() {
