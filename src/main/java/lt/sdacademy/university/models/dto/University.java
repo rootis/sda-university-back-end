@@ -11,12 +11,12 @@ public class University {
 
     private String title;
 
-    private List<String> studyPrograms = new ArrayList<>();
+    private List<StudyProgram> studyPrograms = new ArrayList<>();
 
     public University() {
     }
 
-    public University(Integer id, String code, String title, List<String> studyPrograms) {
+    public University(Integer id, String code, String title, List<StudyProgram> studyPrograms) {
         this.id = id;
         this.code = code;
         this.title = title;
@@ -47,11 +47,11 @@ public class University {
         this.title = title;
     }
 
-    public List<String> getStudyPrograms() {
+    public List<StudyProgram> getStudyPrograms() {
         return studyPrograms;
     }
 
-    public void setStudyPrograms(List<String> studyPrograms) {
+    public void setStudyPrograms(List<StudyProgram> studyPrograms) {
         this.studyPrograms = studyPrograms;
     }
 }
