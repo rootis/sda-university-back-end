@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Universities</title>
+
+  <link rel="stylesheet" th:href="@{webjars/bootstrap/4.5.0/css/bootstrap.min.css}"/>
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#" th:text="${headerText}"></a>
+  </nav>
+
+  <main role="main" class="container">
+    <div class="starter-template">
+      <h1>-</h1>
+      <h2 style="text-align: center">
+        <span th:text="${title}"></span>
+      </h2>
+    </div>
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Code</th>
+        <th scope="col">Title</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="university : ${universities}">
+        <td><span th:text="${university.getCode()}"></span></td>
+        <td><span th:text="${university.getTitle()}"></span></td>
+      </tr>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>
