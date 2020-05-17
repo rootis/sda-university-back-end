@@ -10,4 +10,12 @@ public class ModuleEntity extends AbstractEntity {
 
     @Column(name = "title", length = 250, nullable = false)
     private String title;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }
