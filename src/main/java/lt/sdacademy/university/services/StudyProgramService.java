@@ -1,28 +1,26 @@
 package lt.sdacademy.university.services;
 
 import java.util.List;
+import lt.sdacademy.university.converters.StudyProgramConverter;
 import lt.sdacademy.university.models.dto.StudyProgram;
+import lt.sdacademy.university.models.entities.StudyProgramEntity;
+import lt.sdacademy.university.repositories.StudyProgramRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class StudyProgramService {
 
-    public List<StudyProgram> getStudyPrograms() {
-        // TODO: fix
-        return null;
+    private final StudyProgramConverter studyProgramConverter;
+    private final StudyProgramRepository studyProgramRepository;
+
+    public StudyProgramService(StudyProgramConverter studyProgramConverter, StudyProgramRepository studyProgramRepository) {
+        this.studyProgramConverter = studyProgramConverter;
+        this.studyProgramRepository = studyProgramRepository;
     }
 
-    public StudyProgram getStudyProgram(Integer id) {
-        // TODO: fix
-        return null;
-    }
+    public List<StudyProgram> getStudyPrograms(String title) {
+        List<StudyProgramEntity> studyPrograms = studyProgramRepository.findAllByTitle(title);
 
-    public void delete(Integer id) {
-        // TODO: fix
-    }
-
-    public StudyProgram save(StudyProgram studyProgram) {
-        // TODO: fix
-        return null;
+        return studyProgramConverter.convert(studyPrograms);
     }
 }

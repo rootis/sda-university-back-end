@@ -11,4 +11,7 @@ public interface UniversityRepository extends Repository<UniversityEntity, Integ
     List<UniversityEntity> findAll();
 
     UniversityEntity save(UniversityEntity university);
+
+    // task for Giedre: HQL to select universities by code
+
 }
