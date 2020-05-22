@@ -19,7 +19,7 @@ public class StudyProgramService {
     }
 
     public List<StudyProgram> getStudyPrograms(String title) {
-        List<StudyProgramEntity> studyPrograms = studyProgramRepository.findAllByTitle(title);
+        List<StudyProgramEntity> studyPrograms = studyProgramRepository.findAllByModuleTitleLike(title);
 
         return studyProgramConverter.convert(studyPrograms);
     }
