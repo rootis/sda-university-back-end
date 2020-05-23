@@ -2,14 +2,24 @@ package lt.sdacademy.university.models.entities;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class UserEntity implements UserDetails {
+@Entity
+@Table(name = "user")
+public class UserEntity extends AbstractEntity implements UserDetails {
 
-    private String name;
+    @Column(name = "email", length = 250, nullable = false, unique = true)
     private String email;
+
+    @Column(name = "password", length = 60, nullable = false)
     private String password;
+
+    @Column(name = "name", length = 50, nullable = false)
+    private String name;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

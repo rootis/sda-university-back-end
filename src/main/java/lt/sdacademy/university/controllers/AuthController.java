@@ -28,4 +28,9 @@ public class AuthController {
 
         return new Token(securityService.generateToken(user.getEmail()));
     }
+
+    @PostMapping("/sign-up")
+    public User signUp(@RequestBody User user) {
+        return securityService.signUp(user);
+    }
 }
