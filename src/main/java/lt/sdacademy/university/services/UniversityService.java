@@ -25,8 +25,9 @@ public class UniversityService {
     }
 
     public University getUniversity(Integer id) {
-        // TODO: fix
-        return null;
+        UniversityEntity universityEntity = universityRepository.findOneById(id);
+
+        return universityConverter.convert(universityEntity);
     }
 
     public University save(University university) {
