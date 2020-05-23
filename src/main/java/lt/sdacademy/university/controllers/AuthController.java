@@ -24,9 +24,9 @@ public class AuthController {
 
     @PostMapping("/login")
     public Token authenticate(@RequestBody User user) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword()));
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
 
-        return new Token(securityService.generateToken(user.getEmail()));
+        return new Token(securityService.generateToken(user.getUsername()));
     }
 
     @PostMapping("/sign-up")

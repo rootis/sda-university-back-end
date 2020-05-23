@@ -6,6 +6,7 @@ import lt.sdacademy.university.models.dto.University;
 import lt.sdacademy.university.models.entities.UniversityEntity;
 import lt.sdacademy.university.repositories.UniversityRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UniversityService {
@@ -37,7 +38,8 @@ public class UniversityService {
         return universityConverter.convert(result);
     }
 
+    @Transactional
     public void delete(Integer id) {
-        // TODO: fix
+        universityRepository.deleteOneById(id);
     }
 }

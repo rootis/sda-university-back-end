@@ -10,7 +10,7 @@ public class UserConverter {
     public UserEntity convert(User user) {
         UserEntity userEntity = new UserEntity();
         userEntity.setName(user.getName());
-        userEntity.setEmail(user.getEmail());
+        userEntity.setEmail(user.getUsername());
         userEntity.setPassword(user.getPassword());
 
         return userEntity;

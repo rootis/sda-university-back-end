@@ -11,4 +11,6 @@ public interface UniversityRepository extends Repository<UniversityEntity, Integ
     List<UniversityEntity> findAll();
 
     UniversityEntity save(UniversityEntity university);
+
+    void deleteOneById(Integer id);
 }

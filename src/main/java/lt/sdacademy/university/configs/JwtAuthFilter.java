@@ -34,13 +34,17 @@ public class JwtAuthFilter extends BasicAuthenticationFilter {
 
         if (requestTokenHeader != null && requestTokenHeader.startsWith(PREFIX)) {
             String jwtToken = requestTokenHeader.substring(PREFIX.length());
-            Claims claims = Jwts.parser().setSigningKey(SECRET).parseClaimsJws(jwtToken).getBody();
-            String username = claims.getSubject();
-            Date tokenExpirationDate = claims.getExpiration();
+            try {
+                Claims claims = Jwts.parser().setSigningKey(SECRET).parseClaimsJws(jwtToken).getBody();
+                String username = claims.getSubject();
+                Date tokenExpirationDate = claims.getExpiration();
 
-            if (tokenExpirationDate.after(new Date())) {
-                Authentication authentication = new UsernamePasswordAuthenticationToken(username, null, new ArrayList<>());
-                SecurityContextHolder.getContext().setAuthentication(authentication);
+                if (tokenExpirationDate.after(new Date())) {
+                    Authentication authentication = new UsernamePasswordAuthenticationToken(username, null, new ArrayList<>());
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
 
