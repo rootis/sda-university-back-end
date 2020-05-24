@@ -8,6 +8,8 @@ public interface UniversityRepository extends Repository<UniversityEntity, Integ
 
     UniversityEntity findOneById(Integer id);
 
+    boolean existsByCode(String code);
+
     List<UniversityEntity> findAll();
 
     UniversityEntity save(UniversityEntity university);

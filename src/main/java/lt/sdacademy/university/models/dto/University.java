@@ -2,13 +2,19 @@ package lt.sdacademy.university.models.dto;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 public class University {
 
     private Integer id;
 
+    @NotEmpty
+    @Size(min = 2, max = 10)
     private String code;
 
+    @NotEmpty
+    @Size(min = 6, max = 250)
     private String title;
 
     private List<StudyProgram> studyPrograms = new ArrayList<>();
