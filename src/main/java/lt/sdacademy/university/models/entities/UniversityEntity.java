@@ -7,9 +7,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "university")
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class UniversityEntity extends AbstractEntity {
 
     @Column(name = "code", length = 10, nullable = false)

@@ -1,3 +1,5 @@
 # SDA University Back-end
-## Exclude integration tests:
+## Create Database
+``CREATE DATABASE sda2_university CHARACTER SET utf8 COLLATE utf8_general_ci;``
+## Exclude Integration Tests:
 ``-DexcludedGroups="integration"``
