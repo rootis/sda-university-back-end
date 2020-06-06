@@ -8,19 +8,19 @@ import org.springframework.stereotype.Component;
 public class UserConverter {
 
     public UserEntity convert(User user) {
-        UserEntity userEntity = new UserEntity();
-        userEntity.setName(user.getName());
-        userEntity.setEmail(user.getUsername());
-        userEntity.setPassword(user.getPassword());
+        if (user == null) {
+            return null;
+        }
 
-        return userEntity;
+        UserEntity result = new UserEntity();
+        result.setId(user.getId());
+        result.setName(user.getName());
+        result.setEmail(user.getUsername());
+
+        return result;
     }
 
     public User convert(UserEntity userEntity) {
-        return new User(
-            userEntity.getId(),
-            userEntity.getName(),
-            userEntity.getEmail()
-        );
+        return null;
     }
 }
