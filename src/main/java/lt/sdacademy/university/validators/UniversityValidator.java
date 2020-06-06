@@ -19,6 +19,11 @@ public class UniversityValidator {
     public void validate(University university) {
         Map<String, String> errors = new HashMap<>();
 
+        if (university == null) {
+            errors.put("university", "university cannot be null");
+            throw new ValidationException(errors);
+        }
+
         validateCode(university, errors);
         validateTitle(university, errors);
 
@@ -28,6 +33,11 @@ public class UniversityValidator {
     }
 
     private void validateCode(University university, Map<String, String> errors) {
+        if (university.getCode() == null) {
+            errors.put("code", "code cannot be null");
+            return;
+        }
+
         String universityCode = university.getCode().trim();
 
         if (universityCode.length() < 2) {
