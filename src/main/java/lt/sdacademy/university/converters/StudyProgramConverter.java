@@ -13,6 +13,10 @@ import org.springframework.stereotype.Component;
 public class StudyProgramConverter {
 
     public List<StudyProgram> convert(List<StudyProgramEntity> studyPrograms) {
+        if (studyPrograms == null) {
+            return null;
+        }
+
         return studyPrograms.stream().map(this::convert).collect(toList());
     }
 

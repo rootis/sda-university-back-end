@@ -10,6 +10,9 @@ public class StudyProgram {
 
     private List<String> modules;
 
+    public StudyProgram() {
+    }
+
     public StudyProgram(Integer id, String title, List<String> modules) {
         this.id = id;
         this.title = title;
