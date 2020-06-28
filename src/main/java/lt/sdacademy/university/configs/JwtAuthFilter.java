@@ -9,6 +9,7 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import lt.sdacademy.university.models.dto.User;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -36,11 +37,12 @@ public class JwtAuthFilter extends BasicAuthenticationFilter {
             String jwtToken = requestTokenHeader.substring(PREFIX.length());
             try {
                 Claims claims = Jwts.parser().setSigningKey(SECRET).parseClaimsJws(jwtToken).getBody();
+                String id = claims.getId();
                 String username = claims.getSubject();
                 Date tokenExpirationDate = claims.getExpiration();
 
                 if (tokenExpirationDate.after(new Date())) {
-                    Authentication authentication = new UsernamePasswordAuthenticationToken(username, null, new ArrayList<>());
+                    Authentication authentication = new UsernamePasswordAuthenticationToken(new User(Integer.parseInt(id), username), null, new ArrayList<>());
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                 }
             } catch (Exception e) {

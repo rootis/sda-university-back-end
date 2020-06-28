@@ -28,7 +28,7 @@ public class SecurityService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserEntity loadUserByUsername(String username) throws UsernameNotFoundException {
         UserEntity user = userRepository.findOneByEmail(username);
 
         if (user == null) {
@@ -47,12 +47,10 @@ public class SecurityService implements UserDetailsService {
         return userConverter.convert(result);
     }
 
-    public String generateToken(String username) {
-        Map<String, Object> claims = new HashMap<>();
-        claims.put("subject", username);
-
+    public String generateToken(Integer id, String username) {
         return Jwts.builder()
-            .setClaims(claims)
+            .setClaims(new HashMap<>())
+            .setId(id.toString())
             .setSubject(username)
             .setIssuedAt(new Date(System.currentTimeMillis()))
             .setExpiration(new Date(System.currentTimeMillis() + JwtAuthFilter.VALIDITY))

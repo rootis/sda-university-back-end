@@ -2,6 +2,7 @@ package lt.sdacademy.university.controllers;
 
 import lt.sdacademy.university.models.dto.Token;
 import lt.sdacademy.university.models.dto.User;
+import lt.sdacademy.university.models.entities.UserEntity;
 import lt.sdacademy.university.services.SecurityService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,9 +25,10 @@ public class AuthController {
 
     @PostMapping("/login")
     public Token authenticate(@RequestBody User user) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+        UserEntity userEntity = securityService.loadUserByUsername(user.getUsername());
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userEntity, user.getPassword()));
 
-        return new Token(securityService.generateToken(user.getUsername()));
+        return new Token(securityService.generateToken(userEntity.getId(), userEntity.getEmail()));
     }
 
     @PostMapping("/sign-up")
