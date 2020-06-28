@@ -21,6 +21,6 @@ public class UserConverter {
     }
 
     public User convert(UserEntity userEntity) {
-        return null;
+        return new User(userEntity.getId(), userEntity.getName(), userEntity.getUsername());
     }
 }

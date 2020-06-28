@@ -40,7 +40,7 @@ public class SecurityService implements UserDetailsService {
 
     public User signUp(User user) {
         UserEntity userEntity = userConverter.convert(user);
-        userEntity.setPassword(new BCryptPasswordEncoder().encode(userEntity.getPassword()));
+        userEntity.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
 
         UserEntity result = userRepository.save(userEntity);
 
