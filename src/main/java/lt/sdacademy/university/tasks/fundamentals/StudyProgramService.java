@@ -28,4 +28,12 @@ public class StudyProgramService {
     public List<StudyProgram> getStudyProgramWithModules(String... moduleTitles) {
         return null;
     }
+
+    public StudyProgram getLastStudyProgram(StudyProgram... studyPrograms) {
+        return null;
+    }
+
+    public String getLongestModuleTitle(StudyProgram studyProgram) {
+        return null;
+    }
 }

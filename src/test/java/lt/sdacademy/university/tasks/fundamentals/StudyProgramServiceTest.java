@@ -66,4 +66,14 @@ class StudyProgramServiceTest {
     public void getStudyProgramWithModules() {
         // TODO: complete test
     }
+
+    @Test
+    public void getLastStudyProgram() {
+        // TODO: complete test
+    }
+
+    @Test
+    public void getLongestModuleTitle() {
+        // TODO: complete test
+    }
 }
