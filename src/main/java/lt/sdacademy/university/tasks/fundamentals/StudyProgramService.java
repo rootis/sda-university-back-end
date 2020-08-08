@@ -25,7 +25,7 @@ public class StudyProgramService {
         return null;
     }
 
-    public List<StudyProgram> getStudyProgramWithModules(String... moduleTitles) {
+    public StudyProgram getStudyProgramWithModules(String... moduleTitles) {
         return null;
     }
 
