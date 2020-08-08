@@ -6,7 +6,7 @@ import lt.sdacademy.university.models.dto.StudyProgram;
 public class StudyProgramService {
 
     public StudyProgram getStudyProgram() {
-        return null;
+        return new StudyProgram();
     }
 
     public StudyProgram getStudyProgramWithTitle(String title) {

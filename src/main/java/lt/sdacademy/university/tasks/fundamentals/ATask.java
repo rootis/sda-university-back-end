@@ -7,8 +7,7 @@ public class ATask {
      *  and returns it as a result
      */
     public String printAndGetMessage() {
-        getMessage();
-        return null;
+        return getMessage();
     }
 
     private String getMessage() {
