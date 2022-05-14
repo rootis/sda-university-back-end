@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpHeaders;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
@@ -27,8 +28,19 @@ public abstract class AbstractIntegration {
         return sendRequest(get(url), type);
     }
 
+    protected <T> T sendGet(String url, String token, TypeReference<T> type) throws Exception {
+        return sendRequest(get(url).headers(getHeaders(token)), type);
+    }
+
     protected <T> T sendPost(String url, Object body, TypeReference<T> type) throws Exception {
         return sendRequest(post(url).contentType("application/json").content(objectMapper.writeValueAsString(body)), type);
+    }
+
+    private HttpHeaders getHeaders(String token) {
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.set("Authorization", "Bearer " + token);
+
+        return httpHeaders;
     }
 
     private <T> T sendRequest(MockHttpServletRequestBuilder requestBuilder, TypeReference<T> type) throws Exception {
