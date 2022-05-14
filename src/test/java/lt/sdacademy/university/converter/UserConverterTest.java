@@ -1,0 +1,57 @@
+package lt.sdacademy.university.converter;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+import lt.sdacademy.university.model.dto.User;
+import lt.sdacademy.university.model.entity.UserEntity;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+class UserConverterTest {
+
+    private UserConverter userConverter;
+
+    @BeforeEach
+    void setUp() {
+        userConverter = new UserConverter();
+    }
+
+    @Test
+    void convertDtoToEntity_dtoIsNull() {
+        User user = null;
+
+        UserEntity result = userConverter.convert(user);
+
+        assertNull(result);
+    }
+
+    @Test
+    void convertDtoToEntity_emptyDto() {
+        User user = new User();
+
+        UserEntity result = userConverter.convert(user);
+
+        assertNull(result.getPassword());
+        assertNull(result.getEmail());
+        assertNull(result.getName());
+        assertNull(result.getUsername());
+    }
+
+    @Test
+    void a() {
+        System.out.println(new BCryptPasswordEncoder().encode("slaptazodis"));
+    }
+
+    @Test
+    void convertDtoToEntity_dtoWithFields() {
+        User user = new User(14L, "Test", "Test_username");
+
+        UserEntity result = userConverter.convert(user);
+
+        assertEquals(14, result.getId());
+        assertEquals("Test", result.getName());
+        assertEquals("Test_username", result.getUsername());
+    }
+}

@@ -17,3 +17,5 @@ insert into study_program_module (study_program_id, module_id) VALUES ((select i
 insert into study_program_module (study_program_id, module_id) VALUES ((select id from study_program where title = 'Informatics'), (select id from module where title = 'Digital Logic'));
 insert into study_program_module (study_program_id, module_id) VALUES ((select id from study_program where title = 'Software Systems'), (select id from module where title = 'Mathematics'));
 insert into study_program_module (study_program_id, module_id) VALUES ((select id from study_program where title = 'Software Systems'), (select id from module where title = 'Fundamentals of Object-Oriented Programming'));
+
+insert into user (email, password, name) values ('admin@university.com', '$2a$10$nFpCx5t3.HGr1qFasELHreKhJSu0Pkr1h7j9h/Tfk8pem1tIisTsG', 'Administrator');
