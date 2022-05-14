@@ -7,7 +7,6 @@ import lt.sdacademy.university.model.dto.User;
 import lt.sdacademy.university.model.entity.UserEntity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 class UserConverterTest {
 
@@ -37,11 +36,6 @@ class UserConverterTest {
         assertNull(result.getEmail());
         assertNull(result.getName());
         assertNull(result.getUsername());
-    }
-
-    @Test
-    void a() {
-        System.out.println(new BCryptPasswordEncoder().encode("slaptazodis"));
     }
 
     @Test
