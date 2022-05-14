@@ -9,9 +9,8 @@ public class BTask {
      *  return processed message as a result
      */
     public String printMessage() {
-        String result = getMessage();
-
-        return process(result);
+        getMessage();
+        return process(null);
     }
 
     // TODO: bonus - overload printMessage with int number which shows how many times call process method

@@ -14,8 +14,7 @@ public class Person extends Human {
 
     @Override
     public String getTitle() {
-        String parentTitle = super.getTitle();
-        return String.format("%s, name: %s, surname: %s", parentTitle, firstName, lastName);
+        return "";
     }
 
     public String getTitle(boolean nameOnly) {

@@ -13,7 +13,7 @@ public abstract class Human implements Beeing {
 
     @Override
     public String getTitle() {
-        return String.format("Age: %s, gender: %s", age, gender);
+        return "";
     }
 
     public Integer getAge() {

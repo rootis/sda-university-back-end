@@ -21,13 +21,6 @@ class HumanServiceTest {
     }
 
     @Test
-    void getHumans() {
-        List<Human> result = humanService.getHumans();
-
-        assertFalse(result.isEmpty());
-    }
-
-    @Test
     void filterByGender() {
         List<Human> humans = new ArrayList<>();
         humans.add(new Person(28, Gender.FEMALE, "Margarita", "Kazlauskyte"));
